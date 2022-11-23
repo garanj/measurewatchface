@@ -19,4 +19,22 @@ object WatchfaceActions {
                     "--es operation unset-watchface"
         )
     }
+
+    fun MacrobenchmarkScope.ambientMode() {
+        device.executeShellCommand(
+            "input keyevent 223"
+        )
+    }
+
+    fun MacrobenchmarkScope.interactiveMode() {
+        device.executeShellCommand(
+            "input keyevent 26"
+        )
+    }
+
+    fun MacrobenchmarkScope.disableChargingScreen() {
+        device.executeShellCommand(
+            "setprop persist.enable_charging_experience false"
+        )
+    }
 }

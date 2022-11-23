@@ -36,6 +36,8 @@ dependencies {
     // For watch face skeleton
     implementation "androidx.wear.watchface:watchface:1.2.0-alpha04"
 
+    implementation "androidx.tracing:tracing-ktx:1.1.0"
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.test.ext:junit:1.1.4'
 
