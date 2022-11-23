@@ -1,3 +1,3 @@
-# Media Benchmark library
+# Benchmark library
 
 :construction: In progress :construction:

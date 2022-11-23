@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.horologist.media.benchmark
+package com.google.android.horologist.benchmark
 
 import androidx.benchmark.macro.CompilationMode
 import androidx.benchmark.macro.FrameTimingMetric
@@ -23,8 +23,8 @@ import androidx.benchmark.macro.Metric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import androidx.test.filters.LargeTest
-import com.google.android.horologist.media.benchmark.WatchfaceActions.installWatchface
-import com.google.android.horologist.media.benchmark.WatchfaceActions.uninstallWatchface
+import com.google.android.horologist.benchmark.WatchfaceActions.installWatchface
+import com.google.android.horologist.benchmark.WatchfaceActions.uninstallWatchface
 import org.junit.Rule
 import org.junit.Test
 

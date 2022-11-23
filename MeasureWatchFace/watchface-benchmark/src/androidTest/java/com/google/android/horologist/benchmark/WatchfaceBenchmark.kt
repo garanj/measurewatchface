@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.android.horologist.media.benchmark
+package com.google.android.horologist.benchmark
 
-import android.content.ComponentName
+import androidx.test.filters.LargeTest
 
-data class WatchfaceApp(
-    val packageName: String,
-    val service: String,
-) {
-    val playerComponentName: ComponentName = ComponentName(packageName, service)
+@LargeTest
+class WatchfaceBenchmark : BaseWatchfaceBenchmark() {
+    override val watchface: WatchfaceApp = MeasureWatchFace.WatchfaceApp
 }

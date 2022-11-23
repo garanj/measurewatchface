@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.android.horologist.media.benchmark
+package com.google.android.horologist.benchmark
 
 object MeasureWatchFace {
     val WatchfaceApp = WatchfaceApp(

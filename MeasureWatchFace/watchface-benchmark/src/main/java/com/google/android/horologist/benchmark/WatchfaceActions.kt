@@ -1,4 +1,4 @@
-package com.google.android.horologist.media.benchmark
+package com.google.android.horologist.benchmark
 
 import androidx.benchmark.macro.MacrobenchmarkScope
 
