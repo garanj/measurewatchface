@@ -11,6 +11,7 @@ import androidx.wear.watchface.RenderParameters
 import androidx.wear.watchface.Renderer
 import androidx.wear.watchface.WatchState
 import androidx.wear.watchface.style.CurrentUserStyleRepository
+import com.garan.measurewatchface.profiling.ProfilingRenderer
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
@@ -19,7 +20,7 @@ class MeasureWatchFaceCanvasRenderer(
     currentUserStyleRepository: CurrentUserStyleRepository,
     watchState: WatchState,
     val complicationSlotsManager: ComplicationSlotsManager
-) : Renderer.CanvasRenderer2<MeasureSharedAssets>(
+) : ProfilingRenderer<MeasureSharedAssets>(
     surfaceHolder = surfaceHolder,
     currentUserStyleRepository = currentUserStyleRepository,
     watchState = watchState,
@@ -48,7 +49,7 @@ class MeasureWatchFaceCanvasRenderer(
         ambientConfig.updateOffsets(screenBounds)
     }
 
-    override fun render(
+    override fun renderWatchface(
         canvas: Canvas,
         bounds: Rect,
         zonedDateTime: ZonedDateTime,
@@ -60,7 +61,7 @@ class MeasureWatchFaceCanvasRenderer(
         }
     }
 
-    override fun onRenderParametersChanged(renderParameters: RenderParameters) {
+    override fun onWatchfaceRenderParametersChanged(renderParameters: RenderParameters) {
         currentConfig = if (renderParameters.drawMode == DrawMode.INTERACTIVE) {
             interactiveConfig
         } else {
@@ -69,13 +70,4 @@ class MeasureWatchFaceCanvasRenderer(
     }
 
     override suspend fun createSharedAssets() = MeasureSharedAssets()
-
-    override fun renderHighlightLayer(
-        canvas: Canvas,
-        bounds: Rect,
-        zonedDateTime: ZonedDateTime,
-        sharedAssets: MeasureSharedAssets
-    ) {
-
-    }
 }

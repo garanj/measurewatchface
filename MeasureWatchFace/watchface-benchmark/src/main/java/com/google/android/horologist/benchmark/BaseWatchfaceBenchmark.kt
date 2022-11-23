@@ -23,7 +23,10 @@ import androidx.benchmark.macro.Metric
 import androidx.benchmark.macro.StartupMode
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import androidx.test.filters.LargeTest
+import com.google.android.horologist.benchmark.WatchfaceActions.ambientMode
+import com.google.android.horologist.benchmark.WatchfaceActions.disableChargingScreen
 import com.google.android.horologist.benchmark.WatchfaceActions.installWatchface
+import com.google.android.horologist.benchmark.WatchfaceActions.interactiveMode
 import com.google.android.horologist.benchmark.WatchfaceActions.uninstallWatchface
 import org.junit.Rule
 import org.junit.Test
@@ -54,7 +57,13 @@ abstract class BaseWatchfaceBenchmark {
 
         installWatchface(watchface)
 
-        Thread.sleep(3000)
+        Thread.sleep(2_000)
+
+        ambientMode()
+
+        Thread.sleep(2_000)
+
+        interactiveMode()
 
         uninstallWatchface()
     }
@@ -62,5 +71,7 @@ abstract class BaseWatchfaceBenchmark {
     open fun metrics(): List<Metric> = listOf(FrameTimingMetric())
 
     open fun MacrobenchmarkScope.onStartup() {
+//        disableChargingScreen()
+        interactiveMode()
     }
 }
